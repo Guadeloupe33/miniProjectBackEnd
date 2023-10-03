@@ -22,7 +22,9 @@ app.use(session(sess));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.get('/', (req, res) => {
+  res.send('Hello, this is the root!');
+});
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
