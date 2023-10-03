@@ -43,6 +43,15 @@ router.post('/login', async (req, res) => {
       res.json({ user: userData, message: 'You are now logged in!' });
     });
 
+    router.get('/hello', (req, res) => {
+      if (req.session.logged_in) {
+        res.send('Hello, World! You are logged in.');
+      } else {
+        res.send('Hello, World! You are not logged in.');
+      }
+    });
+    
+
   } catch (err) {
     res.status(400).json(err);
   }
